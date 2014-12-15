@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Office Map</title>
+    <script src="scripts/mapEngine.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+  </head>
+  <body>
+    <div id="searchBar">
+      Floor:<select id="floorSelection" onchange="switchFloorView(this.value)">
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      Search: <input type="text" name="query" autofocus onkeypress="checkEnter(event)" >
+      <button onclick="search()">Search</button>
+      <button onclick="clearSearch()">Clear</button>
+      <br>
+      <p id="results"></p>
+      <p id="hiddenResults"></p>
+      <br>
+    </div>
+  </body>
+</html>

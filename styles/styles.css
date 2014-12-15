@@ -1,0 +1,202 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow:hidden;
+}
+#floorSelection{
+    margin-right:2em;
+}
+#searchBar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}
+#results{
+    margin:0;
+}
+svg#roomSVG {
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    max-height:95%;
+    max-width:95%; 
+    margin:1em;
+}
+rect#splashBG{
+    fill:white;
+}
+text#splashText{
+    font-weight:bold;
+    font-style:oblique;
+    fill:#055E98;
+    font-size:1.5em;
+}
+rect#swipeRect{
+    fill: url(#loadingGrad);
+}
+.fadeThisOut{
+    pointer-events:none;
+    transition: opacity 2s;
+    -moz-transition: opacity 2s; 
+    -webkit-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    opacity:0;
+}
+.fadedOut{
+    pointer-events:none;
+    opacity:0;
+}
+.fadeThisIn{
+    pointer-events:all;
+    transition: opacity 2s;
+    -moz-transition: opacity 2s; 
+    -webkit-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    opacity:1;
+}
+path, rect {
+    fill: none;
+    stroke-width: 1.5;
+}
+.wall path {
+    stroke:black;
+}
+.wall.filled path {
+    fill:white;
+}
+.elevBackground path {
+    stroke:none;
+    fill: #CCC;
+}
+.elevWalls path {
+    stroke-width:1;
+    fill: gray;
+}
+.filingCabinet path {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+}
+.furniture path {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+}
+.room > path{
+    stroke:black;
+}
+.room text {
+    font-size: .6em;
+}
+.cubicle text {
+    font-size: .6em;
+}
+.confRoom text {
+    font-size: .6em;
+}
+.room.floor {
+    font-size: 3em;
+}
+.floorLabel text{
+    font-size: 3em;
+}
+text, tspan {
+    dominant-baseline: text-before-edge;
+}
+.room.bigName text {
+    font-size: 1em;
+}
+.room.cubicle path {
+    stroke-dasharray: 2, 2;
+}
+.supportBeam path {
+    fill: black;
+    stroke: none;
+}
+rect.roomOutline {
+    stroke:black;
+    fill:black;
+    pointer-events:none;
+}
+.room.openOffice > path {
+    stroke:none;
+}
+.roomChunk rect[clip-path] {
+    fill:none;
+    stroke:none;
+    pointer-events:all;
+}
+g.roomChunk:hover rect[clip-path] {
+    fill:#0dffba;
+    cursor:pointer;
+}
+
+g.roomChunk g.clone > rect[clip-path]{
+    pointer-events:none;
+    fill:#0dffba;
+}
+.labelG{
+    pointer-events:none;
+}
+.labelG > rect{
+    fill: white;
+    opacity: 0.8;
+}
+.bathroom rect {
+    stroke: none;
+    fill: none;
+    opacity: 1;
+}
+.bathroom .roomChunk rect[clip-path] {
+    pointer-events:all;
+}
+.bathroom .roomChunk rect[clip-path]:hover {
+    fill: #F0DC82;
+    cursor:auto;
+}
+.elevator path {
+    stroke-width: 1;
+}
+.noDisplay rect[clip-path]{
+    pointer-events:none;
+}
+g.emptyRoomChunk{
+    display:none;
+}
+rect.detailsGBG{
+    fill:white;
+    stroke:black;
+    stroke-width:2;
+}
+
+@media print{
+
+    @page{size:landscape;}
+
+    div#searchBar{
+        display:none;
+    }
+    svg#roomSVG{
+        max-height:100%;
+        max-width:initial;
+
+
+        padding:0;
+        margin:0;
+    }
+    g.splashG{
+        display:none;
+    }
+}
+@media not print{
+    #roomSVG{
+        min-height:720px;
+        min-width:1280px;
+    }
+}
